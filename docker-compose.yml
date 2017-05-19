@@ -4,8 +4,14 @@ services:
 
   motioneye:
     build: .
-    ports:
-      - "8765:8765"
+    container_name: motion
+    restart: always
+    environment:
+      - VIRTUAL_HOST=motion.gareth.id.au
+    networks:
+      - outside
+    expose:
+      - "8765"
     volumes:
       - motioneye-config:/etc/motioneye
       - motioneye-data:/var/lib/motioneye
@@ -15,3 +21,7 @@ volumes:
     driver: convoy
   motioneye-data:
     driver: convoy
+
+network:
+  outside:
+    external: true
