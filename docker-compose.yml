@@ -5,7 +5,6 @@ services:
   motioneye:
     build: .
     ports:
-      - "8081:8081"
       - "8765:8765"
     volumes:
       - motioneye-config:/etc/motioneye
