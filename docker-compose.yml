@@ -22,6 +22,6 @@ volumes:
   motioneye-data:
     driver: convoy
 
-network:
+networks:
   outside:
     external: true
